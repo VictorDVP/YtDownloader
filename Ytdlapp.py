@@ -15,13 +15,9 @@ def download_file():
     get_link = link_field.get()
     user_path = path_label.cget("text")
     mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
-    #mp3_sound = YouTube(get_link).streams.get_audio_only().download()
     vid_clip = VideoFileClip(mp4_video)
     vid_clip.close()
-    #sound_clip= AudioFileClip(mp3_sound)
-    #sound_clip.close()
     shutil.move(mp4_video, user_path)
-    #shutil.move(mp3_sound, user_path)
     screen.title("Download complete!")
 
 screen = Tk()
